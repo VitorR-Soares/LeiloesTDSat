@@ -1,3 +1,9 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -149,7 +155,12 @@ public class cadastroVIEW extends javax.swing.JFrame {
         produto.setStatus(status);
         
         ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
+        try {
+            produtodao.cadastrarProduto(produto);
+            JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Falha em cadastrar o produto: " + ex.getMessage());
+        }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
