@@ -1,5 +1,9 @@
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -140,8 +144,16 @@ public class listagemVIEW extends javax.swing.JFrame {
         
         ProdutosDAO produtosdao = new ProdutosDAO();
         
-        //produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+        try {
+            produtosdao.venderProduto(Integer.parseInt(id));
+            JOptionPane.showMessageDialog(rootPane, "Venda realizada com sucesso");
+            listarProdutos();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Falha em realizar venda");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Erro em realizar venda");
+        }
+        
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
