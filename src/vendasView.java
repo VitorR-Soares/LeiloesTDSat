@@ -154,7 +154,8 @@ public class vendasView extends javax.swing.JFrame {
                     listagem.get(i).getStatus()
                 });
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     
     }

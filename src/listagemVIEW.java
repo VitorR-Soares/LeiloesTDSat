@@ -229,7 +229,9 @@ public class listagemVIEW extends javax.swing.JFrame {
                     listagem.get(i).getStatus()
                 });
             }
+            
         } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     
     }

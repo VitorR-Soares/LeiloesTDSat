@@ -27,7 +27,7 @@ public class ProdutosDAO {
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
     public void cadastrarProduto (ProdutosDTO produto) throws SQLException{        
-        String sql = "insert into produtos values (?,?,?)";
+        String sql = "insert into produtos (nome, valor, status) values (?,?,?)";
         conn = new conectaDAO().connectDB();
         prep = conn.prepareStatement(sql);
         prep.setString(1, produto.getNome());
@@ -47,6 +47,7 @@ public class ProdutosDAO {
     
     public ArrayList<ProdutosDTO> listarProdutos() throws SQLException{
         String sql = "select * from produtos";
+        conn = new conectaDAO().connectDB();
         stmt = conn.createStatement();
         resultset = stmt.executeQuery(sql);
         while (resultset.next()){
@@ -73,6 +74,7 @@ public class ProdutosDAO {
     }
     public void venderProduto(int id) throws SQLException{
         String sql = "UPDATE produtos SET status = ? WHERE id = ?";
+        conn = new conectaDAO().connectDB();
         prep = conn.prepareStatement(sql);
         prep.setString(1, "Vendido");
         prep.setInt(2, id);
@@ -86,7 +88,8 @@ public class ProdutosDAO {
         
     }
     public ArrayList<ProdutosDTO> listaProdutosVendidos() throws SQLException{
-        String sql = "SELECT * FROM produtos WHERE status = Vendido";
+        String sql = "SELECT * FROM produtos WHERE status = 'Vendido'";
+        conn = new conectaDAO().connectDB();
         stmt = conn.createStatement();
         resultset = stmt.executeQuery(sql);
         while (resultset.next()){
