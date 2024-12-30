@@ -152,13 +152,12 @@ public class listagemVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Falha em realizar venda");
         } catch (Exception e){
             JOptionPane.showMessageDialog(rootPane, "Erro em realizar venda");
-        }
-        
+        }        
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        //vendasVIEW vendas = new vendasVIEW(); 
-        //vendas.setVisible(true);
+        vendasView vendas = new vendasView(); 
+        vendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
