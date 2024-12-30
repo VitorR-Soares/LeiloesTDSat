@@ -71,7 +71,18 @@ public class ProdutosDAO {
         }
         return listagem;
     }
-    public void venderProduto(){
+    public void venderProduto(int id) throws SQLException{
+        String sql = "UPDATE produtos SET status = ? WHERE id = ?";
+        prep = conn.prepareStatement(sql);
+        prep.setString(1, "Vendido");
+        prep.setInt(2, id);
+        prep.executeUpdate();
+        try {
+            conn.close();
+            System.out.println( "Conexão com o banco de dados fechada" );
+        } catch (SQLException sqle) {
+            System.out.println( "Erro no fechamento da conexão : " + sqle.getMessage());
+        }
         
     }
     public ArrayList<ProdutosDTO> listaProdutosVendidos(){
