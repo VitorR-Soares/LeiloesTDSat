@@ -71,7 +71,13 @@ public class ProdutosDAO {
         }
         return listagem;
     }
-    
+    public void venderProduto(){
+        
+    }
+    public ArrayList<ProdutosDTO> listaProdutosVendidos(){
+        
+        return listagem;
+    }
     
     
         
